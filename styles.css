@@ -174,16 +174,27 @@ img {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(17, 31, 44, 0.75) 0%, rgba(17, 31, 44, 0.4) 45%, rgba(17, 31, 44, 0.15) 100%);
+  background: linear-gradient(90deg, rgba(17, 31, 44, 0.58) 0%, rgba(17, 31, 44, 0.3) 45%, rgba(17, 31, 44, 0.08) 100%);
 }
 
 .hero-content {
   position: relative;
   z-index: 1;
   min-height: inherit;
-  display: flex;
-  align-items: center;
-  padding: clamp(3rem, 8vw, 5rem) 0;
+  padding: 0;
+}
+
+.hero-copy {
+  position: absolute;
+  top: 52%;
+  left: 0;
+  width: 100%;
+  max-width: none;
+  background: rgba(11, 22, 31, 0.42);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 16px;
+  padding: 1rem 1.1rem;
+  backdrop-filter: blur(2px);
 }
 
 .eyebrow {
@@ -204,7 +215,7 @@ h4 {
 
 h1 {
   font-family: "Baloo 2", sans-serif;
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(1.85rem, 3.9vw, 2.9rem);
   margin-bottom: 1rem;
 }
 
@@ -216,13 +227,14 @@ h2 {
 
 .hero-copy p {
   color: #f6fbff;
-  max-width: 62ch;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.28);
+  max-width: none;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.22);
 }
 
 .hero-copy h1 {
   color: #fff;
-  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
+  max-width: none;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.24);
 }
 
 .hero-copy .eyebrow {
@@ -425,6 +437,35 @@ dd {
   background: linear-gradient(180deg, #fff8e9, #fffef9);
 }
 
+.goals {
+  background: linear-gradient(180deg, #f5fbff, #fbfeff);
+}
+
+.goal-grid {
+  margin-top: 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.goal-card {
+  background: #fff;
+  border: 1px solid #cfe7f2;
+  border-radius: var(--radius-md);
+  padding: 1rem;
+}
+
+.goal-card h3 {
+  font-family: "Baloo 2", sans-serif;
+  color: var(--teal-deep);
+  margin-bottom: 0.35rem;
+}
+
+.goal-card p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
 .program-grid {
   margin-top: 1.3rem;
   display: grid;
@@ -530,13 +571,14 @@ dd {
 
 .punches {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: flex-start;
   margin: 1rem 0;
   gap: 0.45rem;
 }
 
 .punches span {
-  flex: 1;
+  flex: 0 0 calc(20% - 0.4rem);
   aspect-ratio: 1;
   border-radius: 999px;
   border: 2px dashed #9acdc5;
@@ -632,6 +674,10 @@ dd {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .goal-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .discount-grid {
     grid-template-columns: 1fr;
   }
@@ -676,6 +722,14 @@ dd {
     grid-template-columns: 1fr;
   }
 
+  .goal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .punches span {
+    flex: 0 0 calc(25% - 0.4rem);
+  }
+
   .topbar-inner {
     flex-direction: column;
     align-items: flex-start;
@@ -687,7 +741,12 @@ dd {
   }
 
   .hero-content {
-    padding: 2rem 0;
+    padding: 0;
+  }
+
+  .hero-copy {
+    top: 48%;
+    padding: 0.9rem 0.9rem;
   }
 
   .banner-card {
